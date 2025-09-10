@@ -1,4 +1,4 @@
-# Zhanna Kaufman | Personal Website | Built using Astrofy
+# Zhanna Kaufman | Personal Website 
 
 This is my personal website, built using Astrofy.
 
