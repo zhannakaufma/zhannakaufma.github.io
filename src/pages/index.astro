@@ -1,0 +1,91 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+import { getCollection } from "astro:content";
+import createSlug from "../lib/createSlug"
+
+const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const last_posts = posts.slice(0, 3);
+---
+
+<BaseLayout sideBarActiveItemID="home">
+  <div class="pb-12 mt-5">
+    <div class="text-5xl font-bold">Zhanna Kaufman</div>
+    <div class="text-3xl py-3 font-bold">PhD Student</div>
+    <div class="py-2">
+      <text class="text-lg">
+        I am a fourth year PhD Student at Umass Amherst, working with Dr. Yuriy Brun at the Laboratory for Software Engineering Research (LASER). 
+        My research is focused in trust in software systems, mainly scoped to three areas - the first is how people perceive and respond to machine learning (ML) models
+        depending on model characteristics, particularly model bias and interaction behavior. As part of this work, I look at how best to give people 
+        an understanding of model behavior, by presenting explanations of underlying model operation or facilitating structured interactions.<br></br>
+
+        The second area of my research supports the creation of trustworthy software with ML assistance. 
+        Specifically, we use machine learning in combination with theorem prover tools such as Coq to automate proof synthesis. The 
+        aim of this work is to use automation to make proving code correctness accessible to large projects and to developers without expertise in 
+        formal verification. <br></br>
+
+        More recently, I have begun work on understanding human robustness to incorrect natural language descriptions of formally specified postconditions. 
+        The goal of this work is to help developers calibtrate their dependence on ML assistance when writing tests for code, and more effectively 
+        use code assistance to create trustworthy software. <br></br>
+
+        Before coming to UMASS, I worked for six years in industry as a Cyber Research and Innovation Engineer.
+        I received my Bachelor's in Electrical Engineering from Boston University in 2015 and my MS in Computer Science from Worcester Polytechnic Institute in 2018. 
+      </text>
+    </div>
+    <div class="mt-8">
+      <a class="btn" href="https://scholar.google.com/citations?user=SIOnJtYAAAAJ&hl=en" target="_blank">Google Scholar</a>
+      <a href="https://bsky.app/profile/missmondegreen.bsky.social" target="_blank" class="btn btn-outline ml-5">
+        BlueSky
+      </a>
+    </div>
+  </div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
+  </div>
+
+  <HorizontalCard
+    title="Your Model Is Unfair, Are You Even Aware? Inverse Relationship Between Comprehension and Trust in Explainability Visualizations of Biased ML Models"
+    img="/post_img.webp"
+    desc="Systems relying on ML have become ubiquitous, but so has biased behavior within them. Research shows that bias significantly affects stakeholders’ trust in systems and how they use them. Further, stakeholders of different backgrounds view and trust the same systems differently. Thus, how ML models’ behavior is explained plays a key role in comprehension and trust. We survey explainability visualizations, creating a taxonomy of design characteristics. We conduct user studies to evaluate five state-of-the-art visualization tools (LIME, SHAP, CP, Anchors, and ELI5) for model explainability, measuring how taxonomy characteristics affect comprehension, bias perception, and trust for non-expert ML users. Surprisingly, we find an inverse relationship between comprehension and trust: the better users understand the models, the less they trust them. We investigate the cause and find that this relationship is strongly mediated by bias perception: more comprehensible visualizations increase people’s perception of bias, and increased bias perception reduces trust. We confirm this relationship is causal: Manipulating explainability visualizations to control comprehension, bias perception, and trust, we show that visualization design can significantly (p < 0.001) increase comprehension, increase perceived bias, and reduce trust. Conversely, reducing perceived model bias, either by improving model fairness or by adjusting visualization design, significantly increases trust even when comprehension remains high. Our work advances understanding of how comprehension affects trust and systematically investigates visualization’s role in facilitating responsible ML applications."
+    url="#"
+    badge="Accepted to IEEE Vis 2025"
+    badge="No link yet"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="QEDCartographer: Automating Formal Verification Using Reward-Free Reinforcement Learning"
+    img="/post_img.webp"
+    desc="Formal verification is a promising method for producing reliable software, but the difficulty of manually writing verification proofs severely limits its utility in practice. Recent methods have automated some proof synthesis by guiding a search through the proof space using a theorem prover. Unfortunately, the theorem prover provides only the crudest estimate of progress, resulting in effectively undirected search. To address this problem, we create QEDCartographer, an automated proof-synthesis tool that combines supervised and reinforcement learning to more effectively explore the proof space. QEDCartographer incorporates the proofs’ branching structure, enabling reward- free search and overcoming the sparse reward problem inherent to formal verification. We evaluate QEDCartographer using the CoqGym benchmark of 68.5K theorems from 124 open-source Coq projects. QEDCartographer fully automatically proves 21.4% of the test-set theorems. Previous search-based proof-synthesis tools Tok, Tac, ASTactic, Passport, and Proverbot9001, which rely only on supervised learning, prove 9.6%, 9.8%, 10.9%, 12.5%, and 19.8%, respectively. Diva, which combines 62 tools, proves 19.2%. Comparing to the most effective prior tool, Proverbot9001, QEDCartographer produces 26% shorter proofs 27% faster, on average over the theorems both tools prove. Together, QEDCartographer and non-learning-based CoqHammer prove 31.8% of the theorems, while CoqHammer alone proves 26.6%. Our work demonstrates that reinforcement learning is a fruitful research direction for improving proof-synthesis tools’ search mechanisms."
+    url="https://people.cs.umass.edu/~brun/pubs/pubs/Sanchez-Stern25icse.pdf"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Demo Project 3"
+    img="/post_img.webp"
+    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    url="#"
+    badge="FOSS"
+  />
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
+  </div>
+
+  {
+    last_posts.map((post) => (
+      <>
+        <HorizontalCard
+          title={post.data.title}
+          img={post.data.heroImage}
+          desc={post.data.description}
+          url={"/blog/" + createSlug(post.data.title, post.slug)}
+          target="_self"
+          badge={post.data.badge}
+        />
+        <div class="divider my-0" />
+      </>
+    ))
+  }
+</BaseLayout>
