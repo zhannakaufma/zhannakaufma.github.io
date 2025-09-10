@@ -15,7 +15,7 @@ const last_posts = posts.slice(0, 3);
     <div class="text-3xl py-3 font-bold">PhD Student</div>
     <div class="py-2">
       <text class="text-lg">
-        I am a fourth year PhD Student at Umass Amherst, working with Dr. Yuriy Brun at the Laboratory for Software Engineering Research (LASER). 
+        I am a fifth year PhD Student at Umass Amherst, working with Dr. Yuriy Brun at the Laboratory for Software Engineering Research (LASER). 
         My research is focused in trust in software systems, mainly scoped to three areas - the first is how people perceive and respond to machine learning (ML) models
         depending on model characteristics, particularly model bias and interaction behavior. As part of this work, I look at how best to give people 
         an understanding of model behavior, by presenting explanations of underlying model operation or facilitating structured interactions.<br></br>
@@ -42,50 +42,47 @@ const last_posts = posts.slice(0, 3);
   </div>
 
   <div>
-    <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
+    <div class="text-3xl w-full font-bold mb-2">My latest completed projects</div>
   </div>
 
   <HorizontalCard
     title="Your Model Is Unfair, Are You Even Aware? Inverse Relationship Between Comprehension and Trust in Explainability Visualizations of Biased ML Models"
-    img="/post_img.webp"
+    img="/explainabilityFig.webp"
     desc="Systems relying on ML have become ubiquitous, but so has biased behavior within them. Research shows that bias significantly affects stakeholders’ trust in systems and how they use them. Further, stakeholders of different backgrounds view and trust the same systems differently. Thus, how ML models’ behavior is explained plays a key role in comprehension and trust. We survey explainability visualizations, creating a taxonomy of design characteristics. We conduct user studies to evaluate five state-of-the-art visualization tools (LIME, SHAP, CP, Anchors, and ELI5) for model explainability, measuring how taxonomy characteristics affect comprehension, bias perception, and trust for non-expert ML users. Surprisingly, we find an inverse relationship between comprehension and trust: the better users understand the models, the less they trust them. We investigate the cause and find that this relationship is strongly mediated by bias perception: more comprehensible visualizations increase people’s perception of bias, and increased bias perception reduces trust. We confirm this relationship is causal: Manipulating explainability visualizations to control comprehension, bias perception, and trust, we show that visualization design can significantly (p < 0.001) increase comprehension, increase perceived bias, and reduce trust. Conversely, reducing perceived model bias, either by improving model fairness or by adjusting visualization design, significantly increases trust even when comprehension remains high. Our work advances understanding of how comprehension affects trust and systematically investigates visualization’s role in facilitating responsible ML applications."
-    url="#"
+    url="https://arxiv.org/pdf/2508.00140"
     badge="Accepted to IEEE Vis 2025"
-    badge="No link yet"
   />
   <div class="divider my-0"></div>
   <HorizontalCard
     title="QEDCartographer: Automating Formal Verification Using Reward-Free Reinforcement Learning"
-    img="/post_img.webp"
+    img="/qedcart.webp"
     desc="Formal verification is a promising method for producing reliable software, but the difficulty of manually writing verification proofs severely limits its utility in practice. Recent methods have automated some proof synthesis by guiding a search through the proof space using a theorem prover. Unfortunately, the theorem prover provides only the crudest estimate of progress, resulting in effectively undirected search. To address this problem, we create QEDCartographer, an automated proof-synthesis tool that combines supervised and reinforcement learning to more effectively explore the proof space. QEDCartographer incorporates the proofs’ branching structure, enabling reward- free search and overcoming the sparse reward problem inherent to formal verification. We evaluate QEDCartographer using the CoqGym benchmark of 68.5K theorems from 124 open-source Coq projects. QEDCartographer fully automatically proves 21.4% of the test-set theorems. Previous search-based proof-synthesis tools Tok, Tac, ASTactic, Passport, and Proverbot9001, which rely only on supervised learning, prove 9.6%, 9.8%, 10.9%, 12.5%, and 19.8%, respectively. Diva, which combines 62 tools, proves 19.2%. Comparing to the most effective prior tool, Proverbot9001, QEDCartographer produces 26% shorter proofs 27% faster, on average over the theorems both tools prove. Together, QEDCartographer and non-learning-based CoqHammer prove 31.8% of the theorems, while CoqHammer alone proves 26.6%. Our work demonstrates that reinforcement learning is a fruitful research direction for improving proof-synthesis tools’ search mechanisms."
     url="https://people.cs.umass.edu/~brun/pubs/pubs/Sanchez-Stern25icse.pdf"
+    badge="ICSE 2025"
   />
   <div class="divider my-0"></div>
   <HorizontalCard
-    title="Demo Project 3"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="FOSS"
+    title="My model is unfair, do people even care? visual design affects trust and perceived bias in machine learning"
+    img="/investorsFig.webp"
+    desc="Machine learning technology has become ubiquitous, but, unfortunately, often exhibits bias. As a consequence, disparate stakeholders need to interact with and make informed decisions about using machine learning models in everyday systems. Visualization technology can support stakeholders in understanding and evaluating trade-offs between, for example, accuracy and fairness of models. This paper aims to empirically answer “Can visualization design choices affect a stakeholder's perception of model bias, trust in a model, and willingness to adopt a model?” Through a series of controlled, crowd-sourced experiments with more than 1,500 participants, we identify a set of strategies people follow in deciding which models to trust. Our results show that men and women prioritize fairness and performance differently and that visual design choices significantly affect that prioritization. For example, women trust fairer models more often than men do, participants value fairness more when it is explained using text than as a bar chart, and being explicitly told a model is biased has a bigger impact than showing past biased performance. We test the generalizability of our results by comparing the effect of multiple textual and visual design choices and offer potential explanations of the cognitive mechanisms behind the difference in fairness perception and trust. Our research guides design considerations to support future work developing visualization systems for machine learning."
+    url="https://arxiv.org/pdf/2308.03299"
+    badge="IEEE Vis 2023"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Proofster: Automated formal verification"
+    img="/proofster.webp"
+    desc="Formal verification is an effective but extremely work-intensive method of improving software quality. Verifying the correctness of software systems often requires significantly more effort than implementing them in the first place, despite the existence of proof assistants, such as Coq, aiding the process. Recent work has aimed to fully automate the synthesis of formal verification proofs, but little tool support exists for practitioners. This paper presents oofster, a web-based tool aimed at assisting developers with the formal verification process via proof synthesis. oofster inputs a Coq theorem specifying a property of a software system and attempts to automatically synthesize a formal proof of the correctness of that property. When it is unable to produce a proof, oofster outputs the proof-space search tree its synthesis explored, which can guide the developer to provide a hint to enable oofster to synthesize the proof. oofster runs online at https://proofster.cs.umass.edu/ and a video demonstrating oofster is available at https://youtu.be/xQAi66IRfwI/."
+    url="https://people.cs.umass.edu/~brun/pubs/pubs/Agrawal23icse-demo.pdf"
+    badge="ICSE-Companion 2023"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Passport: Improving automated formal verification using identifiers"
+    img="/passport.webp"
+    desc="Machine learning technology has become ubiquitous, but, unfortunately, often exhibits bias. As a consequence, disparate stakeholders need to interact with and make informed decisions about using machine learning models in everyday systems. Visualization technology can support stakeholders in understanding and evaluating trade-offs between, for example, accuracy and fairness of models. This paper aims to empirically answer “Can visualization design choices affect a stakeholder's perception of model bias, trust in a model, and willingness to adopt a model?” Through a series of controlled, crowd-sourced experiments with more than 1,500 participants, we identify a set of strategies people follow in deciding which models to trust. Our results show that men and women prioritize fairness and performance differently and that visual design choices significantly affect that prioritization. For example, women trust fairer models more often than men do, participants value fairness more when it is explained using text than as a bar chart, and being explicitly told a model is biased has a bigger impact than showing past biased performance. We test the generalizability of our results by comparing the effect of multiple textual and visual design choices and offer potential explanations of the cognitive mechanisms behind the difference in fairness perception and trust. Our research guides design considerations to support future work developing visualization systems for machine learning."
+    url="https://people.cs.umass.edu/~brun/pubs/pubs/Sanchez-Stern25icse.pdf"
+    badge="TOPLAS 2023"
   />
 
-  <div>
-    <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
-  </div>
-
-  {
-    last_posts.map((post) => (
-      <>
-        <HorizontalCard
-          title={post.data.title}
-          img={post.data.heroImage}
-          desc={post.data.description}
-          url={"/blog/" + createSlug(post.data.title, post.slug)}
-          target="_self"
-          badge={post.data.badge}
-        />
-        <div class="divider my-0" />
-      </>
-    ))
-  }
 </BaseLayout>
