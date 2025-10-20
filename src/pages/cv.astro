@@ -1,11 +1,20 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import TimeLineElement from "../components/cv/TimeLine.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<BaseLayout title="Resume" sideBarActiveItemID="cv">
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">UNDER CONSTRUCTION</div>
-  </div>
+<Layout title="Curriculum Vitae">
+  <h1>Curriculum Vitae</h1>
+  <iframe
+    src="/CV_Zhanna_Kaufman.pdf"
+    width="100%"
+    height="800px"
+    style="border:none;"
+  ></iframe>
 
-</BaseLayout>
+  <p class="mt-4">
+    <a href="/CV_Zhanna_Kaufman.pdf" download class="btn btn-primary">
+      Download CV
+    </a>
+  </p>
+</Layout>
+
