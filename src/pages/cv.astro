@@ -4,18 +4,15 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
 ---
 
 <BaseLayout title="Curriculum Vitae">
-  <h1>Curriculum Vitae</h1>
   <iframe
     src="/ZHANNA_CV_FOR_WEBSITE.pdf"
     width="100%"
-    height="800px"
+    height="900"
     style="border:none;"
   ></iframe>
 
+  <!-- Fallback link (for browsers that block inline PDFs) -->
   <p class="mt-4">
-    <a href="/ZHANNA_CV_FOR_WEBSITE.pdf" download class="btn btn-primary">
-      Download CV
-    </a>
+    If the PDF doesn’t load, <a class="link" href="/ZHANNA_CV_FOR_WEBSITE.pdf" target="_blank" rel="noopener">open it in a new tab</a>.
   </p>
 </BaseLayout>
-
